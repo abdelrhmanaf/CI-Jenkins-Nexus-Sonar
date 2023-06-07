@@ -1,0 +1,8 @@
+SNAP-REPO=app-snapshot
+NEXUS-USER=admin
+NEXUS-PASS=admin123
+RELEASE-REPO=app-release
+CENTRAL-REPO=app-maven-central
+NEXUS-GRP-REPO=app-maven-group
+NEXUSIP=172.31.80.127
+NEXUSPORT=8081
