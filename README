@@ -1,0 +1,63 @@
+# Continuous Integration with Jenkins, Nexus, SonarQube, and Slack on AWS EC2
+
+This project sets up a continuous integration (CI) pipeline using Jenkins, Nexus, SonarQube, and Slack on AWS EC2 instances. The pipeline includes building, testing, and analyzing code, as well as storing artifacts in Nexus for future use. Additionally, the pipeline integrates with Slack to send push notifications to a specified channel.
+
+## Prerequisites
+
+Before getting started with this project, you will need the following:
+
+- An AWS account
+- EC2 instances with Ubuntu and Centos AMIs, with appropriate security groups configured
+- Jenkins, Nexus and SonarQube installed on the EC2 instances
+- Git installed on your local machine
+
+## Setup
+
+### EC2 Instance Configuration
+
+1. Launch an instance on AWS EC2.
+2. Configure the appropriate security group to allow access to Jenkins, Nexus and SonarQube.
+3. Add user data to configure each EC2 instance with the necessary software and dependencies. 
+
+
+### Jenkins Configuration
+
+1. Open the Jenkins UI on the EC2 instance and install the necessary plugins, including:
+
+- SonarQube Scanner
+- Sonar Quality Gates
+- Nexus Artifact Uploader
+- Copy Artifact
+- Zentimestamp
+- Git
+- Pipeline
+- Slack Notification
+- Warning Next Generation
+- Violation 
+
+2. Configure the Jenkins pipeline to build, test, and analyze the code.
+
+
+### Nexus Configuration
+
+1. Configure Nexus to store the artifacts. Create a new repository in Nexus under the "Maven (Hosted)" repository group.
+2. Create a new user in Nexus with the appropriate credentials.
+3. In Jenkins, add the Nexus credentials to the "Credentials" section in the Jenkins configuration.
+
+### SonarQube Configuration
+
+1. Configure SonarQube to analyze the code.
+2. In Jenkins, add the SonarQube credentials to the "Credentials" section in the Jenkins configuration.
+
+### Slack Configuration
+
+1. Create a new Slack app and obtain an access token for the app.
+2. In Jenkins, go to Manage Jenkins > Configure System > Slack. Enter the access token in the "Token" field and select the desired default channel for push notifications.
+
+## Usage
+
+To use the CI pipeline, simply push code changes to the Git repository. Jenkins will automatically trigger the pipeline to build, test, analyze the code using SonarQube, store the artifacts in Nexus, and send a push notification to the specified Slack channel upon completion.
+
+## Conclusion
+
+This project provides a basic setup for a CI pipeline using Jenkins, Nexus, SonarQube, and Slack on AWS EC2 instances, with security groups configured for each instance and user data used to configure each instance. You can customize the pipeline to fit your specific needs and requirements. The Slack integration can help you stay up to date with the pipeline's progress and receive notifications in real-time.
